@@ -20,3 +20,23 @@ docker rmi academind-nodejs-webserver-image
 # é possivel usar o comando docker logs para ver os prints do console
 
 # --rm remove o container quando ele não é mais usado
+
+# te permite inspecionar parametros e configurações da imagem
+docker inspect python 
+
+# me permite copiar algo da minha máquina para o container e vice-versa
+docker cp python-app-container:/app/rng.py python-app-starting-setup/cpy/
+
+# comando pra renomear uma imagem 
+docker tag node-demo:latest academind/node-hello-world
+
+# envia a imagem para o docker hub
+docker push academind/node-hello-world
+
+# logar no docker hub
+docker login
+
+# puxa a imagem do docker hub da academind pra minha máquina local
+docker pull academind/node-hello-world
+
+docker run -p 8000:3000 -rm academind/node-hello-world 
