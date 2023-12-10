@@ -10,4 +10,11 @@ COPY . .
 
 EXPOSE 80
 
-CMD [ "node", "server.js" ]
+# VOLUME [ "/app/feedback" ]
+# esta instrução de volume anonimo não ajuda pois quando o container é 
+# removido o volume é apagado junto com ele
+# porém esse volume anonimo serve pra manter a pasta nodemodules
+# sempre inalterada dentro do container
+VOLUME [ "/app/node_modules" ]
+
+CMD [ "npm", "start" ]
