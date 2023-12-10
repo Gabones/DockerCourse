@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  first-demo-app:
+    build: ./
+    #Este é o nome da imagem criada pelo Dockerfile.
+    image: first-demo-starting-image
+    #Este é o nome do container que vai ser criado pelo docker-compose.
+    container_name: first-container-app
+    ports:
+      - "3000:3000"
