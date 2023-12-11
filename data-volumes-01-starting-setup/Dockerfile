@@ -8,11 +8,17 @@ RUN npm install
 
 COPY . .
 
+# argumentos podem ter valor default ou podem ser sobrescritos no cli
+# com a tag --build-arg DEFAULT_PORT=8000 nesse caso
+# colocar proximo de onde usa pra não fica recriando varias layers
+ARG DEFAULT_PORT=80
+
 # criando uma variável de ambiente 
 # que pode inclusive ser usada dentro do javascript
-# essa variavel também pode ser definida ou sobre escrita no cli
+# essa variavel também pode ser definida ou sobrescrita no cli
 # com a tag --env 
 # ENV PORT=80
+ENV PORT=${DEFAULT_PORT}
 
 EXPOSE $PORT
 

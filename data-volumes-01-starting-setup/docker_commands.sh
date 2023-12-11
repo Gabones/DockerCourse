@@ -4,6 +4,9 @@ docker rmi data-volumes-image:latest
 
 docker build -t data-volumes-image:latest .
 
+# ARGS
+# docker build -t data-volumes-image:with-args --build-arg DEFAULT_PORT=8000 .
+
 # -d detached
 # --name nome do container
 # --rm auto remove quando o container é parado
@@ -24,6 +27,8 @@ docker build -t data-volumes-image:latest .
 
 # --env-file ./.env pode ser usado para ter um arquivo .env com as variáveis do docker
 docker run -p 3000:8000 -d --name data-volumes-container --env-file ./.env -v feedback_volume:/app/feedback -v "D:\Gabriel\Documentos\DockerCourse\data-volumes-01-starting-setup":/app:ro --rm data-volumes-image
+
+# 
 
 # lista todos os volumes
 docker volume ls
